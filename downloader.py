@@ -28,7 +28,7 @@ class Downloader:
                         res = await response.read()
                         await asyncio.sleep(self.tSleep)
         except:
-            res = 'NULL from response'
+            res = b'NULL from response'
         
         return pd.DataFrame(data={'url':url, 'response': res},index=[0])
 
@@ -38,7 +38,7 @@ class Downloader:
                 async with session.post(url=url, headers=self.headers, data=self.data) as response:
                     res = await response.read()
         except:
-            res = 'NULL from response'
+            res = b'NULL from response'
         
         return pd.DataFrame(data={'url':url, 'response': res},index=[0])
     
@@ -62,7 +62,7 @@ class Downloader:
 
 
 def fetchNullUrl(df):
-    url_null = list(df.loc[df.response == 'NULL from response'].url)
+    url_null = list(df.loc[df.response == b'NULL from response'].url)
     url_null += list(df.loc[df.response.map(lambda x: x.find(b'Just a moment')) > 0].url)
     return url_null
 
@@ -72,6 +72,7 @@ def retry(dfFilename, proxy, logging, nRetry=3):
         url_null = fetchNullUrl(df)
         if len(url_null) > 0:
             logging.info(f'retry {n}: {dfFilename} {len(url_null)} null responses')
+            print(f'retry {n}: {dfFilename} {len(url_null)} null responses')
             df_retry = Downloader(url_null,proxy=proxy, tSleep=5, outFilename='retry.pkl').run()
             df = pd.concat([df_retry, df],ignore_index=True).drop_duplicates(subset='url',keep='first')
             df.to_pickle(dfFilename)
