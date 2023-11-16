@@ -1,0 +1,21 @@
+<html lang="en"><meta name="viewport" content="width=device-width, initial-scale=1" /><head><link rel="stylesheet" href="../init.css"></head><body><section class="css-qm1vln e1m3q8rc0"><div class="css-b4a1pi elvs37n0"><span class="css-1te5c83 e11l78dl0"><a data-analytics="sidebar:section" href="/the-world-this-week/"><span>The world this week</span></a></span><span class="css-1mdqtqm e11bnqe00"> | <!-- -->The Economist</span></div><h1 class="css-fk78xg e1t4u3eq0">This week’s cover</h1><h2 class="css-o55d57 elmr55g0">How we saw the world</h2></section><section class="css-1fpllpa ee5d8yd1" data-body-id="cp2"><div class="css-knmu16 ee5d8yd2"><p class="css-1hno3qs e190yofl0" data-component="paragraph"><span data-caps="initial">T</span><small>his week</small> we have one cover, on a shadow that looms over the world: Donald Trump. The edition includes <a href="https://www.economist.com/the-world-ahead-2024"><i>The World Ahead 2024</i></a>, our 38th annual predictive guide to the coming year. In all that time no single person has ever eclipsed our analysis as much as Mr Trump eclipses 2024. His victory in next year’s presidential election is a coin-toss probability. We explore what that means for America—and the world.</p><div class="css-0 eitqf4z0"><figure class="css-qts40t e1197rjj0"><img data-nimg="1" decoding="async" height="1684" loading="lazy" sizes="(min-width: 960px) 834px, 95vw" src="../image/20231118_DE_US.jpg" srcset="../image/20231118_DE_US.jpg" style="color:transparent" width="1280"/></figure></div><p class="css-1hno3qs e190yofl0" data-component="paragraph"><b>Leader</b>: <a href="https://www.economist.com/leaders/2023/11/16/donald-trump-poses-the-biggest-danger-to-the-world-in-2024">Donald Trump poses the biggest danger to the world in 2024<br/></a><b>The World Ahead 2024: </b><a href="https://www.economist.com/the-world-ahead/2023/11/13/an-unpopularity-contest-between-joe-biden-and-donald-trump-looms">An unpopularity contest between Joe Biden and Donald Trump looms<br/></a><b>United States: </b><a href="https://www.economist.com/united-states/2023/11/07/donald-trump-looks-terrifyingly-electable">Donald Trump looks terrifyingly electable</a></p></div></section></body>
+    <script>
+    window.tedl = window.tedl || {};
+    // Resize iframes on articles with interactives when they send a RESIZE message
+    window.addEventListener('message', (event) => {
+    if (event.data.type === 'RESIZE') {
+    Array.prototype.forEach.call(document.getElementsByTagName('iframe'), function (element) {
+    if (element.contentWindow === event.source) {
+    const height = parseInt(event.data.payload.height, 10);
+    const elementHeight = parseInt(element.style.height, 10);
+    if (isNaN(elementHeight) | Math.abs(elementHeight - height) > 10){
+        element.style.height = height + 'px';
+    }
+    // 
+    console.log(elementHeight - height);
+    }
+    });
+    }
+    }, false);
+    </script>
+    </html>
