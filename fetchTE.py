@@ -1,7 +1,8 @@
 from downloader import Downloader, retry
 from bs4 import BeautifulSoup
 import pandas as pd
-import os, requests, re, logging, glob, platform
+import os, requests, re, logging, glob, platform, time
+import urllib.request
 
 js = """
     <script>
@@ -320,11 +321,14 @@ if __name__ == "__main__":
 
     editionUrl = f'https://www.economist.com/weeklyedition'
 
+    # Fetch proxies in your device
+    proxies = urllib.request.getproxies()
+    
     # proxy
     if platform.system() == 'Windows':
-        proxy='http://127.0.0.1:7890'
+        proxy = proxies.get('http', None)
     elif platform.system() == 'Linux':
-        proxy=''
+        proxy = proxies.get('http', None)
 
     # logging
     if os.path.exists('te.log'):
