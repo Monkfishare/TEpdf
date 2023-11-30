@@ -25,15 +25,6 @@ js = """
     </script>
     """
 
-def create_folders():
-    folders = ['html', 'assets', 'image']
-    for folder in folders:
-        if not os.path.exists(folder):
-            os.makedirs(folder)
-
-if __name__ == "__main__":
-    create_folders()
-
 def fetchSection(cl,docu):
     link_list = []
     for i in docu.findAll(class_=cl):
@@ -353,7 +344,3 @@ if __name__ == "__main__":
         link, response = df_article.loc[idx]
         genArticle(link, response)
     genPrint()
-
-    #remove pkl files
-    os.remove(f'{edition}_articles.pkl')
-    os.remove(f'{edition}_images.pkl')
