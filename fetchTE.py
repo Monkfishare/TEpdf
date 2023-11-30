@@ -321,14 +321,11 @@ if __name__ == "__main__":
 
     editionUrl = f'https://www.economist.com/weeklyedition'
 
-    # Fetch proxies in your device
-    proxies = urllib.request.getproxies()
-    
     # proxy
     if platform.system() == 'Windows':
-        proxy = proxies.get('http', None)
+        proxy='http://127.0.0.1:7890'
     elif platform.system() == 'Linux':
-        proxy = proxies.get('http', None)
+        proxy=''
 
     # logging
     if os.path.exists('te.log'):
